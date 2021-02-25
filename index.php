@@ -30,13 +30,13 @@
 	 if($_FILES['FILE']['size'] != 0 AND
 		$_FILES['FILE']['size']<=802400)
 		 {
-		 	$whitelist = array(".movie"); 
+		 	$whitelist = array(".png"); 
 
-  			 $error = true;
+  			 $error = false;
   
    //Проверяем разрешение файла
 		   foreach  ($whitelist as  $item) {
-		        if(preg_match("/$item\$/i",$_FILES['FILE']['name'])) $error = false;
+		        if(preg_match("/$item\$/i",$_FILES['FILE']['name'])) $error = true ;
 		   }
 
   if($error) die("Ошибка,&nbsp; Вы можете загружать только movie "); 
